@@ -1,0 +1,69 @@
+# ------------------------------------------------
+# Node.js Dependency Directories
+# ------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------------
+# Environment Variables & Security (KRİTİK)
+# ------------------------------------------------
+# .env dosyaları şifre içerir, asla yüklenmemeli
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ancak örnek şablonu yüklemeliyiz (Varsa)
+!.env.example
+
+# ------------------------------------------------
+# Database (SQLite)
+# ------------------------------------------------
+# Veritabanı dosyaları ve geçici journal dosyaları
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+database.db
+taskmanager.db
+
+# ------------------------------------------------
+# IDE & Editor Settings
+# ------------------------------------------------
+# VS Code / VSCodium ayarları
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA (Eski kalıntılar için)
+.idea/
+*.iml
+
+# Linux / Vim / Nano temporary files
+*~
+*.swp
+*.swo
+
+# Mac & Windows System Files
+.DS_Store
+Thumbs.db
+
+# ------------------------------------------------
+# Testing & Coverage
+# ------------------------------------------------
+coverage/
+.nyc_output/
+
+# ------------------------------------------------
+# Logs
+# ------------------------------------------------
+logs
+*.log
+npm-debug.log*
