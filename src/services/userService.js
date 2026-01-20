@@ -16,7 +16,8 @@ const registerUser = async (userData) => {
     const newUser = {
         username: userData.username,
         email: userData.email,
-        password: hashedPassword
+        password: hashedPassword,
+        role: userData.role || 'user'
     };
 
     return await userRepository.createUser(newUser);
@@ -35,7 +36,7 @@ const loginUser = async (email, password) => {
     }
 
     const token = jwt.sign(
-        { id: user.id, email: user.email }, // Payload
+        { id: user.id, email: user.email, role: user.role }, // Payload
         process.env.JWT_SECRET,             
         { expiresIn: '1h' }                 
     );

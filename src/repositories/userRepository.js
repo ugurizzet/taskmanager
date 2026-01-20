@@ -2,8 +2,8 @@ const db = require('../config/database');
 
 const createUser = (user) => {
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO users (username, email, password) VALUES (?, ?, ?)`;
-        db.run(sql, [user.username, user.email, user.password], function (err) {
+        const sql = `INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)`;
+        db.run(sql, [user.username, user.email, user.password, user.role], function (err) {
             if (err) return reject(err);
             resolve({ id: this.lastID, ...user });
         });

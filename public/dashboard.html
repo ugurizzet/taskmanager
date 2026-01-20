@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks - Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loading-overlay" class="hidden"><div class="spinner"></div></div>
+
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 id="welcome-msg">My Tasks</h2>
+            <button onclick="logout()" style="width: auto; background-color: #f38ba8;">Logout</button>
+        </div>
+        
+        <form id="task-form">
+            <input type="text" id="task-title" placeholder="Task Title" required>
+            <input type="text" id="task-desc" placeholder="Description (Optional)">
+            <button type="submit">Add Task</button>
+        </form>
+
+        <hr style="border-color: #45475a;">
+
+        <div id="task-list">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth(); // Check token
+            loadTasks(); // Fetch tasks
+        });
+    </script>
+</body>
+</html>
