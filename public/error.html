@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Error!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hata!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" style="text-align: center;">
-        <h1 style="color: #f38ba8; font-size: 3rem;">Oops!</h1>
-        <h3>Something went wrong.</h3>
-        <p id="error-message">Server unreachable or unauthorized access.</p>
-        <button onclick="window.location.href='index.html'">Return to Home</button>
+    <div class="container error-container">
+        <div class="error-box">
+            <h1>⚠️ Bir Hata Oluştu</h1>
+            <p>Erişmeye çalıştığınız sayfaya ulaşılamıyor veya yetkiniz yok.</p>
+            <a href="index.html" class="btn-primary">Ana Sayfaya Dön</a>
+        </div>
     </div>
 </body>
 </html>

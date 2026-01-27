@@ -3,37 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tasks - Task Manager</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="loading-overlay" class="hidden"><div class="spinner"></div></div>
-
-    <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 id="welcome-msg">My Tasks</h2>
-            <button onclick="logout()" style="width: auto; background-color: #f38ba8;">Logout</button>
-        </div>
-        
-        <form id="task-form">
-            <input type="text" id="task-title" placeholder="Task Title" required>
-            <input type="text" id="task-desc" placeholder="Description (Optional)">
-            <button type="submit">Add Task</button>
-        </form>
-
-        <hr style="border-color: #45475a;">
-
-        <div id="task-list">
+    <div class="container dashboard-container">
+        <header class="header">
+            <h2 id="welcome-msg">Tasks</h2>
+            <div class="header-buttons">
+                <a href="admin.html" id="admin-btn" class="btn-admin" style="display: none;">Admin Panel 🛡️</a>
+                
+                <button id="btn-logout" class="btn-logout">Çıkış Yap</button>
             </div>
-    </div>
+        </header>
 
+        <section class="task-form-section">
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Yeni görev başlığı..." required>
+                <input type="text" id="task-desc" placeholder="Açıklama (Opsiyonel)">
+                <button type="submit" class="btn-add">Ekle</button>
+            </form>
+        </section>
+
+        <section class="task-list-section">
+            <div id="task-list">
+                <p>Yükleniyor...</p>
+            </div>
+        </section>
+    </div>
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            checkAuth(); // Check token
-            loadTasks(); // Fetch tasks
-        });
-    </script>
 </body>
 </html>

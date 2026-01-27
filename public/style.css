@@ -1,56 +1,314 @@
-body {
+/* GENEL AYARLAR */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e2e;
-    color: #cdd6f4;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    margin: 0;
 }
 
+/* GİZLEME SINIFI (JS kullanıyor) */
+.hidden {
+    display: none !important;
+}
+
+/* KONTEYNERLER */
 .container {
-    background-color: #313244;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    width: 400px;
-    max-width: 90%;
+    width: 100%;
+    padding: 20px;
 }
 
-h2 { text-align: center; color: #89b4fa; }
+.auth-container, .error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
-input, button, textarea {
+.dashboard-container, .admin-container {
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+/* KART TASARIMLARI (Login Kutusu vb.) */
+.auth-box, .error-box {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* FORMLAR */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+input {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #45475a;
-    background-color: #181825;
-    color: white;
-    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-button {
-    background-color: #89b4fa;
-    color: #1e1e2e;
-    font-weight: bold;
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* BUTONLAR */
+button, .btn-primary, .btn-secondary, .btn-add, .btn-back {
     cursor: pointer;
     border: none;
-    transition: 0.3s;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
 }
 
-button:hover { background-color: #b4befe; }
-button.delete-btn { background-color: #f38ba8; margin-top: 5px;}
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+}
+.btn-primary:hover { background-color: #0056b3; }
+
+.btn-secondary {
+    background-color: #28a745;
+    color: white;
+    width: 100%;
+}
+.btn-secondary:hover { background-color: #218838; }
+
+.btn-logout {
+    background-color: #dc3545;
+    color: white;
+}
+.btn-logout:hover { background-color: #c82333; }
+
+.btn-admin {
+    background-color: #ffc107;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-admin:hover { background-color: #e0a800; }
+
+.btn-add {
+    background-color: #007bff;
+    color: white;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* GÖREV LİSTESİ */
+#task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-form input {
+    flex: 1;
+}
 
 .task-item {
-    background-color: #45475a;
-    padding: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    border-left: 5px solid #a6e3a1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.hidden { display: none; }
-.link { color: #89b4fa; cursor: pointer; text-decoration: underline; text-align: center; display: block; }
+.task-item strong {
+    display: block;
+    font-size: 1.1rem;
+}
 
+.btn-delete-task {
+    background-color: #ff4d4f;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+/* LINKLER */
+a { color: #007bff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.toggle-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* --- ADMIN PANEL STYLES (DÜZELTİLMİŞ) --- */
+
+.admin-container {
+    max-width: 1000px; /* Genişliği artırdık */
+    margin: 40px auto;
+    background: white; /* Arka planı beyaz yaptık */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- TABLO TASARIMI (SORUNU ÇÖZEN KISIM) --- */
+#users-table {
+    width: 100%; /* Tabloyu tüm alana yay */
+    border-collapse: collapse; /* Kenarlıkları birleştir */
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+#users-table thead {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+#users-table th {
+    padding: 15px;
+    text-align: left; /* Sola hizala */
+    font-weight: 700;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+#users-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle; /* Dikeyde ortala */
+    color: #333;
+}
+
+/* Satır üzerine gelince renk değişimi */
+#users-table tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s;
+}
+
+/* Sütun Genişliklerini Ayarlama (Opsiyonel ama önerilir) */
+#users-table th:nth-child(1) { width: 5%; }  /* ID Sütunu */
+#users-table th:nth-child(2) { width: 20%; } /* Username */
+#users-table th:nth-child(3) { width: 30%; } /* Email */
+#users-table th:nth-child(4) { width: 15%; } /* Role */
+#users-table th:nth-child(5) { width: 30%; text-align: center; } /* Action */
+#users-table td:nth-child(5) { text-align: center; } /* Buton ortalansın */
+
+/* Rol Rozetleri */
+.role-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.role-user {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.role-admin {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+
+/* Butonlar */
+.btn-delete-user {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(255, 77, 79, 0.3);
+}
+
+.btn-delete-user:hover {
+    background-color: #d9363e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 77, 79, 0.4);
+}
+
+.btn-back {
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.btn-back:hover {
+    color: #343a40;
+}

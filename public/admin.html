@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel 🛡️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container admin-container">
+        <header class="header">
+            <h1>Admin Panel 🛡️</h1>
+            <div class="header-buttons">
+                <a href="dashboard.html" class="btn-back">⬅ Back to Dashboard</a>
+                <button id="btn-logout" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <main>
+            <h2>User Management</h2>
+            
+            <p id="loading-msg">Loading users...</p>
+
+            <table id="users-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="users-body">
+                    </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

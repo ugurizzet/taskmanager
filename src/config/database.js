@@ -24,6 +24,13 @@ const db = new sqlite3.Database(process.env.DB_PATH , (err) => {
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
             )`);
+            db.run(`CREATE TABLE IF NOT EXISTS refresh_tokens (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                token TEXT NOT NULL,
+                user_id INTEGER,
+                expires_at DATETIME NOT NULL,
+                FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+                )`);
         });
     }
 });
