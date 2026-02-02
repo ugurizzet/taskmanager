@@ -2,7 +2,7 @@
 
 **A production-ready Node.js REST API developed progressively through Labs 10-14, demonstrating advanced backend architecture, security hardening, and automated testing strategies.**
 
-![CI Status](https://github.com/ugurizzet/task-manager/actions/workflows/ci.yml/badge.svg)
+![CI Status](https://github.com/ugurizzet/taskmanager/actions/workflows/ci.yml/badge.svg)
 ![Coverage](https://img.shields.io/badge/coverage-82%25-brightgreen)
 ![Security](https://img.shields.io/badge/OWASP-Verified-blue)
 
@@ -191,6 +191,6 @@ This project has undergone a passive security scan using **OWASP ZAP (Zed Attack
 * **Scan Tool:** OWASP ZAP 2.14
 * **Target:** Local Development Environment
 * **Results:** Zero High-Risk Vulnerabilities found.
-* **View Report:** [📄 Click here to view the full HTML Report](./reports/zap-sec-report.html)
+* **View Report:** [📄 Click here to view the full Security Report](./reports/TaskManagerSecurityScanReport.pdf)
 
 *(Note: Download the file to view the HTML report in your browser)*
