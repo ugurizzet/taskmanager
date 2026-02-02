@@ -192,5 +192,3 @@ This project has undergone a passive security scan using **OWASP ZAP (Zed Attack
 * **Target:** Local Development Environment
 * **Results:** Zero High-Risk Vulnerabilities found.
 * **View Report:** [📄 Click here to view the full Security Report](./reports/TaskManagerSecurityScanReport.pdf)
-
-*(Note: Download the file to view the HTML report in your browser)*
