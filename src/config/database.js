@@ -6,7 +6,9 @@ const db = new sqlite3.Database(process.env.DB_PATH , (err) => {
     if (err) {
         console.error('Database connection error:', err.message);
     } else {
+        if (process.env.NODE_ENV !== 'test'){
         console.log('✅ A connection was established to the SQLite database.');
+        }
         db.serialize(() => {    
             db.run(`PRAGMA foreign_keys = ON;`);
             db.run(`CREATE TABLE IF NOT EXISTS users (
