@@ -30,7 +30,6 @@ const findById = (id) => {
     });
 };
 
-// Görev Sil
 const deleteTask = (id) => {
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM tasks WHERE id = ?`;

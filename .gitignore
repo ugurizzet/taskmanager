@@ -67,3 +67,8 @@ coverage/
 logs
 *.log
 npm-debug.log*
+
+# SSL 
+*.key
+*.cert
+*.pem

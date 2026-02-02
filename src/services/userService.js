@@ -89,7 +89,7 @@ const refreshAccessToken = async (oldRefreshToken) => {
                     db.run("DELETE FROM refresh_tokens WHERE token = ?", [oldRefreshToken]);
 
                     const newAccessToken = jwt.sign({id: decoded.id}, process.env.JWT_SECRET, {expiresIn: '15m'});
-                    const newRefreshToken = jwt.sign({id: decoded.id}, process.env.JWT_SECRET, {expiresIn: '15m'});
+                    const newRefreshToken = jwt.sign({id: decoded.id}, process.env.JWT_SECRET, {expiresIn: '1d'});
 
                     await saveRefreshToken(decoded.id, newRefreshToken);
 

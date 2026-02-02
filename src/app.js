@@ -32,7 +32,10 @@ app.use((req, res, next) => {
     next();
 });
 
-
+// app.get('/api/crash-test', (req, res, next) => {
+//     // Bilerek hata fırlatıyoruz
+//     throw new Error("💣");
+// });
 
 
 
@@ -63,13 +66,13 @@ app.use((req, res, next) => {
 //     res.send("Node.js sunucusu çalışıyor!");
 // });
 
-// app.use((err, req, res, next) => {
-//    console.error(err.stack);
-//    res.status(500).json({
-//       status: 'error',
-//         message: 'Sunucu tarafında bir hata oluştu.'
-//    });
-// });
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+      status: 'error',
+        message: 'An error occurred on the server side.'
+   });
+});
 
 //  const PORT = process.env.PORT || 3000;
 //  app.listen(PORT, () => {
