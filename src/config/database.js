@@ -2,6 +2,10 @@ const sqlite3 = require('sqlite3').verbose();
 const dotenv = require('dotenv');
 require('dotenv').config();
 
+const dbPath = process.env.NODE_ENV === 'test' 
+    ? ':memory:' 
+    : (process.env.DB_PATH || './taskmanager.db');
+
 const db = new sqlite3.Database(process.env.DB_PATH , (err) => {
     if (err) {
         console.error('Database connection error:', err.message);

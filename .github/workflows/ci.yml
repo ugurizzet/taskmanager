@@ -34,3 +34,4 @@ jobs:
         REFRESH_SECRET: "github_refresh_secret_key"
         ADMIN_SECRET: "TestSecret123"
         NODE_ENV: "test"
+        DB_PATH: ":memory:"
